@@ -1,6 +1,29 @@
 /* ============================================================
    ANIMATION ENGINE - Counters and Scroll Smooth Triggers
    ============================================================ */
+/* ============================================================
+   CORE ENTRY TRIGGER ROUTINE
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Removes the scale constraint and lifts body opacity seamlessly
+    setTimeout(() => {
+        document.body.style.opacity = "1";
+        document.body.style.transform = "scale(1)";
+    }, 50);
+
+    // 2. Ripple click effect on structural action links
+    const operationalButtons = document.querySelectorAll('button, .nav-links a');
+    operationalButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // Subtle micro-feedback on selection context
+            this.style.transform = "scale(0.96)";
+            setTimeout(() => {
+                this.style.transform = "";
+            }, 100);
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Dynamic Metric Counter Incrementor for Stats Grid Elements
