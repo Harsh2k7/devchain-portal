@@ -4,6 +4,25 @@
 /* ============================================================
    CORE ENTRY TRIGGER ROUTINE
    ============================================================ */
+/* ============================================================
+   APP LAUNCH TIMEOUT SYSTEM HANDLER (SPLASH CONTROLLER)
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+    const splashScreen = document.getElementById('app-splash-screen');
+    
+    // Simulate mobile app environment extraction cycle (1.6 Seconds wait)
+    setTimeout(() => {
+        if(splashScreen) {
+            // Smoothly collapse splash overlay opacity channel
+            splashScreen.style.opacity = '0';
+            splashScreen.style.visibility = 'hidden';
+            
+            // Activate core background content layer elements
+            document.body.classList.add('app-ready');
+        }
+    }, 1600);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Removes the scale constraint and lifts body opacity seamlessly
     setTimeout(() => {
