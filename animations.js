@@ -1,63 +1,47 @@
-/* ============================================================
-   ANIMATION ENGINE - Counters and Scroll Smooth Triggers
-   ============================================================ */
-/* ============================================================
-   CORE ENTRY TRIGGER ROUTINE
-   ============================================================ */
-/* ============================================================
-   APP LAUNCH TIMEOUT SYSTEM HANDLER (SPLASH CONTROLLER)
-   ============================================================ */
+/* ============================================================================
+   MASTER ANIMATION ENGINE — COMPREHENSIVE PRODUCTION READY CODE
+   ============================================================================ */
+
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // ========================================================================
+    // 1. CHESS.COM / MOBILE APP STYLE SPLASH LAUNCH SCREEN CONTROLLER
+    // ========================================================================
     const splashScreen = document.getElementById('app-splash-screen');
     
-    // Simulate mobile app environment extraction cycle (1.6 Seconds wait)
-    setTimeout(() => {
-        if(splashScreen) {
-            // Smoothly collapse splash overlay opacity channel
+    if (splashScreen) {
+        // Dynamic wait loop matching smartphone environment initialization patterns
+        setTimeout(() => {
+            // Smooth dynamic opacity fade cycle out phase
             splashScreen.style.opacity = '0';
-            splashScreen.style.visibility = 'hidden';
+            splashScreen.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
             
-            // Activate core background content layer elements
+            // Activate core background container element layouts
             document.body.classList.add('app-ready');
-        }
-    }, 1600);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Removes the scale constraint and lifts body opacity seamlessly
-    setTimeout(() => {
-        document.body.style.opacity = "1";
-        document.body.style.transform = "scale(1)";
-    }, 50);
-
-    // 2. Ripple click effect on structural action links
-    const operationalButtons = document.querySelectorAll('button, .nav-links a');
-    operationalButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Subtle micro-feedback on selection context
-            this.style.transform = "scale(0.96)";
+            
+            // HARD BREAK THE DOM DISPLAY MATRIX (Non-stop loading loophole bypass)
             setTimeout(() => {
-                this.style.transform = "";
-            }, 100);
-        });
-    });
-});
+                splashScreen.style.display = 'none';
+            }, 500); // 0.5 seconds transparency transition delay anchor
+            
+        }, 1500); // Main initial display window timeout setup
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Dynamic Metric Counter Incrementor for Stats Grid Elements
+    // ========================================================================
+    // 2. DYNAMIC METRIC COUNTER INCREMENTOR (STATS METRICS SYSTEM)
+    // ========================================================================
     const statCards = document.querySelectorAll('.stat-card h2');
     
     statCards.forEach(counter => {
         const rawTargetText = counter.innerText;
-        // Clean mathematical extraction of raw values
+        // Strip off strings to run mathematical loops cleanly
         const targetValue = parseInt(rawTargetText.replace(/[^0-9]/g, ''), 10);
         const hasPlusSymbol = rawTargetText.includes('+');
         const hasPercentSymbol = rawTargetText.includes('%');
         
         let startCount = 0;
-        const countDuration = 1200; // Duration of counter execution in ms
-        const stepsCount = 30;
+        const countDuration = 1000; // Total numbers animation interval lifecycle
+        const stepsCount = 25;
         const incrementValue = Math.ceil(targetValue / stepsCount) || 1;
         const counterStepDelay = Math.floor(countDuration / stepsCount);
 
@@ -65,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startCount += incrementValue;
             if (startCount >= targetValue) {
                 clearInterval(runProgressUpdate);
+                // Return original formatting strings onto UI layout context
                 let formattedResult = targetValue;
                 if (hasPlusSymbol) formattedResult += '+';
                 if (hasPercentSymbol) formattedResult += '%';
@@ -75,12 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, counterStepDelay);
     });
 
-    // 2. Hover Parallax Vector Shifts for Cards
-    const cards = document.querySelectorAll('.feature-card, .step, .project-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transition = "all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)";
+    // ========================================================================
+    // 3. PHYSICAL CLICK SCALE RIPPLE INTERACTION EFFECT
+    // ========================================================================
+    const operationalButtons = document.querySelectorAll('button, .nav-links a');
+    
+    operationalButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Apply micro-scale reduction response mimicking natural modern touch vectors
+            this.style.transform = "scale(0.95)";
+            this.style.transition = "transform 0.1s ease";
+            
+            setTimeout(() => {
+                this.style.transform = "";
+            }, 100);
         });
     });
 });
-
