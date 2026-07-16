@@ -1415,4 +1415,39 @@ color:white;
 
 cursor:pointer;
 
+   /* ============================================================
+   PREMIUM PAGE ENTRY ACCELERATED ANIMATIONS 
+   ============================================================ */
+
+/* 1. Initial State for Smooth Page Unveil */
+body {
+    opacity: 0;
+    transform: scale(0.99);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Keyframes for Elements Cascading Slide Load Effect */
+@keyframes modernEntrySlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Class assignments to orchestrate smooth flow inside elements */
+.welcome, .hero-content, .login-card, .submit-card, .details-card, .profile-card, .explore-page h1 {
+    animation: modernEntrySlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered delay logic so metrics and grids appear gracefully later */
+.stats, .feature-grid, .steps, .projects, .recent {
+    opacity: 0;
+    animation: modernEntrySlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.15s;
+}
+   
 }
