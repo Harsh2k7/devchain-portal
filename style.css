@@ -856,16 +856,20 @@ textarea{
 /* ============================================================
    PREMIUM PAGE ENTRY ACCELERATED ANIMATIONS 
    ============================================================ */
+/* ============================================================
+   🔥 BLANK SCREEN CRITICAL FIX (PURE CSS FORCE REVEAL)
+   ============================================================ */
+
+/* Initial block bypass - body ko invisible state me lock hone se bachayega */
 body {
-    opacity: 0;
-    transform: scale(0.99);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1 !important; /* Forcefully page ko visible karega */
+    transform: none !important; /* Scale lock remove */
 }
 
 @keyframes modernEntrySlide {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
     100% {
         opacity: 1;
@@ -873,14 +877,16 @@ body {
     }
 }
 
+/* Page content elements ko smoothly up-slide karega */
 .welcome, .hero-content, .login-card, .submit-card, .details-card, .profile-card, .explore-page h1 {
-    animation: modernEntrySlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    animation: modernEntrySlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .stats, .feature-grid, .steps, .projects, .recent {
     opacity: 0;
-    animation: modernEntrySlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0.15s;
+    animation: modernEntrySlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
 }
 
 /* ============================================================
