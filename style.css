@@ -1451,3 +1451,102 @@ body {
 }
    
 }
+/* ============================================================
+   CHESS.COM / PLAY STORE STYLE APP LAUNCH INTRO SPLASH
+   ============================================================ */
+
+/* Full Screen Overlay Mask Container */
+#app-splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0F172A; /* Slate theme backdrop */
+    z-index: 99999; /* Pure top priority over everything */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s cubic-bezier(0.86, 0, 0.07, 1), 
+                visibility 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* Central Vector Branding Container Object */
+.splash-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    animation: appLaunchScale 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-branding i {
+    font-size: 90px;
+    color: #3B82F6; /* Glow blue key token */
+    filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6));
+}
+
+.splash-branding h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: textRevealFade 0.5s ease forward;
+    animation-delay: 0.4s;
+}
+
+/* High-End Tech Loading Indicator Ring */
+.splash-loader-ring {
+    margin-top: 40px;
+    width: 45px;
+    height: 45px;
+    border: 4px solid rgba(255, 255, 255, 0.05);
+    border-top: 4px solid #3B82F6;
+    border-radius: 50%;
+    animation: loaderSpinner 0.8s linear infinite;
+}
+
+/* Keyframes Logic Mapping Chess/Play Store Fluid Physics */
+@keyframes appLaunchScale {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1); /* Elastic overshoot bounce like mobile apps */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes textRevealFade {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes loaderSpinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Body reveal control target style modifier */
+.app-ready main, .app-ready header {
+    animation: appWorkspaceSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes appWorkspaceSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.97) translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
